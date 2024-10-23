@@ -1,6 +1,7 @@
 ![App Brewery Banner](https://github.com/londonappbrewery/Images/blob/master/AppBreweryBanner.png)
 
 # Mi Card
+![image](https://github.com/user-attachments/assets/9a52d533-2e4e-4985-949d-0d684bd9cb1c)
 
 ## Our Goal
 
