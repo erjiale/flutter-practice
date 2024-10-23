@@ -11,10 +11,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        backgroundColor: const Color.fromARGB(255, 15, 165, 202),
+        backgroundColor: const Color.fromARGB(255, 18, 145, 177),
         body: SafeArea(
           child: Column(
-            // mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               CircleAvatar(
                 radius: 50.0,
@@ -35,6 +35,13 @@ class MyApp extends StatelessWidget {
                   color: Colors.teal.shade100,
                   letterSpacing: 2.5,
                   fontWeight: FontWeight.bold,
+                )
+              ),
+              SizedBox(
+                height: 20.0,
+                width: 150.0,
+                child: Divider(
+                  color: Colors.teal.shade100
                 )
               ),
               Card(
