@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 void main() => runApp(
@@ -5,7 +7,7 @@ void main() => runApp(
         home: Scaffold(
           appBar: AppBar(
             backgroundColor: Colors.black87,
-            title: Text('Ask me anything', style: TextStyle(color: Colors.white70)),
+            title: Text('Ask Me Anything', style: TextStyle(color: Colors.white70, fontSize: 30)),
             centerTitle: true,
           ),
           body: MainBodyPage(),
@@ -21,6 +23,8 @@ class MainBodyPage extends StatefulWidget {
 }
 
 class _MainBodyPageState extends State<MainBodyPage> {
+  int ballNumber = 1;
+
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -32,9 +36,13 @@ class _MainBodyPageState extends State<MainBodyPage> {
             children: [
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 80),
-                child: Image.asset(
-                  'images/ball1.png',
-                  fit: BoxFit.cover
+                child: TextButton(
+                  onPressed: () => {
+                    setState(() => 
+                      ballNumber = Random().nextInt(5) + 1
+                    )
+                  },
+                  child: Image.asset('images/ball$ballNumber.png'),
                 ),
               ),
             ],
