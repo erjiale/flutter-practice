@@ -2,6 +2,7 @@
 
 
 # Dicee 🎲
+![image](https://github.com/user-attachments/assets/d37d7b88-82ab-48d9-85b5-d38873dee8ed)
 
 ## Our Goal
 
