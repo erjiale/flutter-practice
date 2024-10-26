@@ -2,6 +2,7 @@
 
 
 # Magic 8 Ball 🎱
+![image](https://github.com/user-attachments/assets/31ba92b5-7a43-4ec9-92a9-66665bea5f77)
 
 ## Our Goal
 
