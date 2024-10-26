@@ -23,49 +23,49 @@ class XylophoneApp extends StatelessWidget {
                 onPressed: () => playAudio('note1.wav'),
                 child: Container(
                   height: 100,
-                  color: Colors.black12,
+                  color: const Color.fromARGB(255, 255, 249, 191),
                 ),
               ),
               TextButton(
                 onPressed: () => playAudio('note2.wav'),
                 child: Container(
                   height: 100,
-                  color: Colors.black26,
+                  color: const Color.fromARGB(255, 253, 255, 150),
                 ),
               ),
               TextButton(
                 onPressed: () => playAudio('note3.wav'),
                 child: Container(
                   height: 100,
-                  color: Colors.black38,
+                  color: const Color.fromARGB(255, 255, 250, 130),
                 ),
               ),
               TextButton(
                 onPressed: () => playAudio('note4.wav'),
                 child: Container(
                   height: 100,
-                  color: Colors.black45,
+                  color: const Color.fromARGB(255, 255, 245, 115),
                 ),
               ),
               TextButton(
                 onPressed: () => playAudio('note5.wav'),
                 child: Container(
                   height: 100,
-                  color: Colors.black54,
+                  color: const Color.fromARGB(255, 255, 240, 100),
                 ),
               ),
               TextButton(
                 onPressed: () => playAudio('note6.wav'),
                 child: Container(
                   height: 100,
-                  color: Colors.black87,
+                  color: const Color.fromARGB(255, 255, 235, 56),
                 ),
               ),
               TextButton(
                 onPressed: () => playAudio('note7.wav'),
                 child: Container(
                   height: 100,
-                  color: Colors.black,
+                  color: const Color.fromARGB(255, 255, 230, 0),
                 ),
               ),
             ],
