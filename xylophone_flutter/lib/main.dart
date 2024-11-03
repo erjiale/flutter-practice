@@ -14,13 +14,13 @@ class XylophoneApp extends StatelessWidget {
 
   buildKey(soundNumber, colorInput) {
     return Expanded(
-                child: TextButton(
-                  onPressed: () => playAudio('note$soundNumber.wav'),
-                  child: Container(
-                    color: colorInput,
-                  ),
-                ),
-              );
+      child: TextButton(
+        onPressed: () => playAudio('note$soundNumber.wav'),
+        child: Container(
+          color: colorInput,
+        ),
+      ),
+    );
   }
 
   @override
