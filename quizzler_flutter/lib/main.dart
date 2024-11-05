@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'question.dart';
+
 void main() => runApp(Quizzler());
 
 class Quizzler extends StatelessWidget {
@@ -33,14 +35,14 @@ class _QuizPageState extends State<QuizPage> {
   }
 
   int questionNumber = 0;
-  List<String> questions = [
-    "1+1=2",
-    "9 < 6",
-    "Dependency Injection is a programming technique that makes a class independent of its dependencies"
+  List<Question> questions = [
+    Question(q: "1+1=2", a: true),
+    Question(q: "9 < 6", a: false),
+    Question(q: "Dependency Injection is a programming technique that makes a class independent of its dependencies", a: true),
   ];
-  List<bool> answers = [
-    true, false, true
-  ];
+
+  Question q1 = new Question(q: "1+1=2", a: true); 
+
   List<Icon> scoreKeeper = [];
 
   @override
@@ -55,7 +57,7 @@ class _QuizPageState extends State<QuizPage> {
             padding: EdgeInsets.all(10.0),
             child: Center(
               child: Text(
-                questions[questionNumber],
+                questions[questionNumber].questionText,
                 style: TextStyle(
                   fontSize: 25.0,
                   color: Colors.white
@@ -73,7 +75,7 @@ class _QuizPageState extends State<QuizPage> {
                 onPressed: () => 
                   setState(() {
                     scoreKeeper.add(
-                      answers[questionNumber] == true ?
+                      questions[questionNumber].questionAnswer == true ?
                         buildIcon(Colors.green, Icons.check) :
                         buildIcon(Colors.red, Icons.close)
                     );
@@ -96,7 +98,7 @@ class _QuizPageState extends State<QuizPage> {
                 onPressed: () => 
                   setState(() {
                     scoreKeeper.add(
-                      answers[questionNumber] == false ?
+                      questions[questionNumber].questionAnswer == false ?
                         buildIcon(Colors.green, Icons.check) :
                         buildIcon(Colors.red, Icons.close)
                     );
