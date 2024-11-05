@@ -32,6 +32,8 @@ class _QuizPageState extends State<QuizPage> {
     );
   }
 
+  List<Icon> scoreKeeper = [];
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -60,7 +62,12 @@ class _QuizPageState extends State<QuizPage> {
             child: Container(
               color: Colors.green,
               child: TextButton(
-                onPressed: () => print("true"),
+                onPressed: () => 
+                  setState(() {
+                    scoreKeeper.add(
+                      buildIcon(Colors.green, Icons.check)
+                    );
+                  }),
                 child: Container(
                   child: Text("True", style: TextStyle(color: Colors.white)),
                 )
@@ -74,7 +81,12 @@ class _QuizPageState extends State<QuizPage> {
             child: Container(
               color: Colors.red,
               child: TextButton(
-                onPressed: () => print("false"),
+                onPressed: () => 
+                  setState(() {
+                    scoreKeeper.add(
+                      buildIcon(Colors.red, Icons.close)
+                    );
+                  }),
                 child: Container(
                   child: Text("False", style: TextStyle(color: Colors.white)),
                 ),
@@ -83,10 +95,7 @@ class _QuizPageState extends State<QuizPage> {
           ),
         ),
         Row(
-          children: [
-            buildIcon(Colors.green, Icons.check),
-            buildIcon(Colors.red, Icons.close),
-          ],
+          children: scoreKeeper,
         ),
       ],
     );
