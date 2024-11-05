@@ -25,13 +25,22 @@ class QuizPage extends StatefulWidget {
 }
 
 class _QuizPageState extends State<QuizPage> {
-  buildIcon(colorInput, icon) {
+  Icon buildIcon(colorInput, icon) {
     return Icon(
       icon,
       color: colorInput
     );
   }
 
+  int questionNumber = 0;
+  List<String> questions = [
+    "1+1=2",
+    "9 < 6",
+    "Dependency Injection is a programming technique that makes a class independent of its dependencies"
+  ];
+  List<bool> answers = [
+    true, false, true
+  ];
   List<Icon> scoreKeeper = [];
 
   @override
@@ -46,11 +55,10 @@ class _QuizPageState extends State<QuizPage> {
             padding: EdgeInsets.all(10.0),
             child: Center(
               child: Text(
-                'This is where the question text will go.',
-                textAlign: TextAlign.center,
+                questions[questionNumber],
                 style: TextStyle(
                   fontSize: 25.0,
-                  color: Colors.white,
+                  color: Colors.white
                 ),
               ),
             ),
@@ -65,8 +73,12 @@ class _QuizPageState extends State<QuizPage> {
                 onPressed: () => 
                   setState(() {
                     scoreKeeper.add(
-                      buildIcon(Colors.green, Icons.check)
+                      answers[questionNumber] == true ?
+                        buildIcon(Colors.green, Icons.check) :
+                        buildIcon(Colors.red, Icons.close)
                     );
+                    
+                    questionNumber++;
                   }),
                 child: Container(
                   child: Text("True", style: TextStyle(color: Colors.white)),
@@ -84,8 +96,12 @@ class _QuizPageState extends State<QuizPage> {
                 onPressed: () => 
                   setState(() {
                     scoreKeeper.add(
-                      buildIcon(Colors.red, Icons.close)
+                      answers[questionNumber] == false ?
+                        buildIcon(Colors.green, Icons.check) :
+                        buildIcon(Colors.red, Icons.close)
                     );
+                    
+                    questionNumber++;
                   }),
                 child: Container(
                   child: Text("False", style: TextStyle(color: Colors.white)),
