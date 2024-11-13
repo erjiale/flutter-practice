@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
 import 'question.dart';
+import 'quiz_brain.dart';
+
+QuizBrain quizBrain = new QuizBrain();
 
 void main() => runApp(Quizzler());
 
@@ -35,14 +38,7 @@ class _QuizPageState extends State<QuizPage> {
   }
 
   int questionNumber = 0;
-  List<Question> questions = [
-    Question(q: "1+1=2", a: true),
-    Question(q: "9 < 6", a: false),
-    Question(q: "Dependency Injection is a programming technique that makes a class independent of its dependencies", a: true),
-  ];
-
-  Question q1 = new Question(q: "1+1=2", a: true); 
-
+  
   List<Icon> scoreKeeper = [];
 
   @override
@@ -57,7 +53,7 @@ class _QuizPageState extends State<QuizPage> {
             padding: EdgeInsets.all(10.0),
             child: Center(
               child: Text(
-                questions[questionNumber].questionText,
+                quizBrain.questions[questionNumber].questionText,
                 style: TextStyle(
                   fontSize: 25.0,
                   color: Colors.white
@@ -75,7 +71,7 @@ class _QuizPageState extends State<QuizPage> {
                 onPressed: () => 
                   setState(() {
                     scoreKeeper.add(
-                      questions[questionNumber].questionAnswer == true ?
+                      quizBrain.questions[questionNumber].questionAnswer == true ?
                         buildIcon(Colors.green, Icons.check) :
                         buildIcon(Colors.red, Icons.close)
                     );
@@ -98,7 +94,7 @@ class _QuizPageState extends State<QuizPage> {
                 onPressed: () => 
                   setState(() {
                     scoreKeeper.add(
-                      questions[questionNumber].questionAnswer == false ?
+                      quizBrain.questions[questionNumber].questionAnswer == false ?
                         buildIcon(Colors.green, Icons.check) :
                         buildIcon(Colors.red, Icons.close)
                     );
