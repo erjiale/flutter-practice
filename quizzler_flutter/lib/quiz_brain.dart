@@ -1,7 +1,7 @@
 import 'question.dart';
 
 class QuizBrain {
-  List<Question> questions = [
+  List<Question> _questions = [
     Question("1+1=2", true),
     Question("9 < 6", false),
     Question("Dependency Injection is a programming technique that makes a class independent of its dependencies", true),
@@ -31,4 +31,12 @@ class QuizBrain {
         'In West Virginia, USA, if you accidentally hit an animal with your car, you are free to take it home to eat.',
         true),
   ];
+
+  getQuestionText(int questionNumber) {
+    return _questions[questionNumber].questionText;
+  }
+
+  getQuestionAnswer(int questionNumber) {
+    return _questions[questionNumber].questionAnswer;
+  }
 }
