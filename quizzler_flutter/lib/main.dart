@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rflutter_alert/rflutter_alert.dart';
 
 import 'question.dart';
 import 'quiz_brain.dart';
@@ -30,6 +31,8 @@ class QuizPage extends StatefulWidget {
 }
 
 class _QuizPageState extends State<QuizPage> {
+  List<Icon> scoreKeeper = [];
+
   Icon buildIcon(colorInput, icon) {
     return Icon(
       icon,
@@ -37,8 +40,28 @@ class _QuizPageState extends State<QuizPage> {
     );
   }
 
-  
-  List<Icon> scoreKeeper = [];
+  checkAnswer(answer) {
+    setState(() {
+      if (quizBrain.endOfQuestions()) {
+        Alert(
+          context: context,
+          title: 'Finished!',
+          desc: 'You\'ve reached the end of the quiz.',
+        ).show();
+
+        quizBrain.reset();
+        scoreKeeper = [];
+      }
+      else {
+        scoreKeeper.add(
+          quizBrain.getQuestionAnswer() == answer ?
+            buildIcon(Colors.green, Icons.check) :
+            buildIcon(Colors.red, Icons.close)
+        );
+        quizBrain.nextQuestion();
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -68,15 +91,7 @@ class _QuizPageState extends State<QuizPage> {
               color: Colors.green,
               child: TextButton(
                 onPressed: () => 
-                  setState(() {
-                    scoreKeeper.add(
-                      quizBrain.getQuestionAnswer() == true ?
-                        buildIcon(Colors.green, Icons.check) :
-                        buildIcon(Colors.red, Icons.close)
-                    );
-                    
-                    quizBrain.nextQuestion();
-                  }),
+                  checkAnswer(true),
                 child: Container(
                   child: Text("True", style: TextStyle(color: Colors.white)),
                 )
@@ -91,15 +106,7 @@ class _QuizPageState extends State<QuizPage> {
               color: Colors.red,
               child: TextButton(
                 onPressed: () => 
-                  setState(() {
-                    scoreKeeper.add(
-                      quizBrain.getQuestionAnswer() == false ?
-                        buildIcon(Colors.green, Icons.check) :
-                        buildIcon(Colors.red, Icons.close)
-                    );
-                    
-                    quizBrain.nextQuestion();
-                  }),
+                  checkAnswer(false),
                 child: Container(
                   child: Text("False", style: TextStyle(color: Colors.white)),
                 ),
@@ -110,6 +117,16 @@ class _QuizPageState extends State<QuizPage> {
         Row(
           children: scoreKeeper,
         ),
+        // AlertDialog(
+        //   title: Text('Finished'),
+        //   content: Text('Great Job finishing the quiz!'),
+        //   actions: [
+        //     TextButton(
+        //       onPressed: () => Navigator.pop(context, 'RESTART'),
+        //       child: Text('Restart')
+        //     ),
+        //   ],
+        // )
       ],
     );
   }

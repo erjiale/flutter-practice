@@ -47,4 +47,12 @@ class QuizBrain {
       _questionNumber++;
     }
   }
+
+  bool endOfQuestions() {
+    return _questionNumber >= _questions.length - 1 ? true : false;
+  }
+
+  void reset() {
+    _questionNumber = 0;
+  }
 }
