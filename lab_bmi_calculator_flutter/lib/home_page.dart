@@ -17,36 +17,31 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: Colors.blue,
         title: Text(widget.title),
       ),
-      // body: const Column(
-      //   children: [
-
-      //   ],
-      // )
-      body: Column(
+      body: const Column(
         children: [
           Expanded(
             child: Row(
               children: [
                 Expanded(
-                  child: ReusableCard(color: const Color(0xFF1D1E33))
+                  child: ReusableCard(color: Color(0xFF1D1E33))
                 ),
                 Expanded(
-                  child: ReusableCard(color: const Color(0xFF1D1E33))
+                  child: ReusableCard(color: Color(0xFF1D1E33))
                 ),
               ],
             ),
           ),
           Expanded(
-            child: ReusableCard(color: const Color(0xFF1D1E33)),
+            child: ReusableCard(color: Color(0xFF1D1E33)),
           ),
           Expanded(
             child: Row(
               children: [
                 Expanded(
-                  child: ReusableCard(color: const Color(0xFF1D1E33))
+                  child: ReusableCard(color: Color(0xFF1D1E33))
                 ),
                 Expanded(
-                  child: ReusableCard(color: const Color(0xFF1D1E33))
+                  child: ReusableCard(color: Color(0xFF1D1E33))
                 ),
               ],
             ),
@@ -58,12 +53,12 @@ class _HomePageState extends State<HomePage> {
 }
 
 class ReusableCard extends StatelessWidget {
-  ReusableCard({
+  const ReusableCard({
     super.key, 
     required this.color
   });
 
-  Color color;
+  final Color color;
 
   @override
   Widget build(BuildContext context) {
