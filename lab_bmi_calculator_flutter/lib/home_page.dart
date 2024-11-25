@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+const bottomContainerHeight = 80.0;
+
 class HomePage extends StatefulWidget {
   const HomePage({super.key, required this.title});
 
@@ -14,12 +16,11 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.blue,
         title: Text(widget.title),
       ),
-      body: const Column(
+      body: Column(
         children: [
-          Expanded(
+          const Expanded(
             child: Row(
               children: [
                 Expanded(
@@ -31,10 +32,10 @@ class _HomePageState extends State<HomePage> {
               ],
             ),
           ),
-          Expanded(
+          const Expanded(
             child: ReusableCard(color: Color(0xFF1D1E33)),
           ),
-          Expanded(
+          const Expanded(
             child: Row(
               children: [
                 Expanded(
@@ -45,6 +46,12 @@ class _HomePageState extends State<HomePage> {
                 ),
               ],
             ),
+          ),
+          Container(
+            color: const Color.fromARGB(255, 110, 5, 5),
+            margin: const EdgeInsets.only(top: 10.0),
+            width: double.infinity,
+            height: bottomContainerHeight
           ),
         ],
       ),
