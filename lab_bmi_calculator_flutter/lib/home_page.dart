@@ -4,7 +4,8 @@ import 'icon_content.dart';
 import 'reusable_card.dart';
 
 const bottomContainerHeight = 80.0;
-const cardColor = Color(0xFF1D1E33);
+const activeCardColor = Color(0xFF1D1E33);
+const inactiveCardColor = Color(0xFF111328);
 const bottomContainerColor = Color(0xFF6E0505);
 const textColor = Color(0xFF9E9E98);
 
@@ -18,6 +19,34 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+
+  Color maleCardColor = inactiveCardColor;
+  Color femaleCardColor = inactiveCardColor;
+
+  // 0 = male, 1 = female
+  void updateColor(int gender) {
+    switch (gender) {
+      case 0:
+        maleCardColor = maleCardColor == inactiveCardColor
+          ? activeCardColor
+          : inactiveCardColor;
+        femaleCardColor = maleCardColor == activeCardColor
+          ? inactiveCardColor
+          : femaleCardColor;
+        break;
+      case 1:
+        femaleCardColor = femaleCardColor == inactiveCardColor
+          ? activeCardColor
+          : inactiveCardColor;
+        maleCardColor = femaleCardColor == activeCardColor
+          ? inactiveCardColor
+          : maleCardColor;
+        break;
+      default:
+        break;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,51 +55,65 @@ class _HomePageState extends State<HomePage> {
       ),
       body: Column(
         children: [
-          const Expanded(
+          Expanded(
             child: Row(
               children: [
                 Expanded(
-                  child: ReusableCard(
-                    color: cardColor,
-                    cardChild: IconContent(
-                      iconData: FontAwesomeIcons.mars,
-                      iconSize: 80.0,
-                      textMessage: 'MALE',
-                      textStyle: TextStyle(
-                        fontSize: 18.0,
-                        color: textColor
+                  child: GestureDetector(
+                    onTap: () => {
+                      setState(() => 
+                        updateColor(0)
+                      ),
+                    },
+                    child: ReusableCard(
+                      color: maleCardColor,
+                      cardChild: const IconContent(
+                        iconData: FontAwesomeIcons.mars,
+                        iconSize: 80.0,
+                        textMessage: 'MALE',
+                        textStyle: TextStyle(
+                          fontSize: 18.0,
+                          color: textColor
+                        )
                       )
-                    )
+                    ),
                   ),
                 ),
                 Expanded(
-                  child: ReusableCard(
-                    color: cardColor,
-                    cardChild: IconContent(
-                      iconData: FontAwesomeIcons.venus,
-                      iconSize: 80.0,
-                      textMessage: 'FEMALE',
-                      textStyle: TextStyle(
-                        fontSize: 18.0,
-                        color: textColor
+                  child: GestureDetector(
+                    onTap: () => {
+                      setState(() => 
+                        updateColor(1)
+                      ),
+                    },
+                    child: ReusableCard(
+                      color: femaleCardColor,
+                      cardChild: const IconContent(
+                        iconData: FontAwesomeIcons.venus,
+                        iconSize: 80.0,
+                        textMessage: 'FEMALE',
+                        textStyle: TextStyle(
+                          fontSize: 18.0,
+                          color: textColor
+                        )
                       )
-                    )
+                    ),
                   )
                 ),
               ],
             ),
           ),
           const Expanded(
-            child: ReusableCard(color: cardColor),
+            child: ReusableCard(color: inactiveCardColor),
           ),
           const Expanded(
             child: Row(
               children: [
                 Expanded(
-                  child: ReusableCard(color: cardColor)
+                  child: ReusableCard(color: inactiveCardColor)
                 ),
                 Expanded(
-                  child: ReusableCard(color: cardColor)
+                  child: ReusableCard(color: inactiveCardColor)
                 ),
               ],
             ),
