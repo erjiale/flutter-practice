@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 const bottomContainerHeight = 80.0;
 const cardColor = Color(0xFF1D1E33);
 const bottomContainerColor = Color(0xFF6E0505);
+const textColor = Color(0xFF9E9E98);
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key, required this.title});
@@ -26,10 +28,28 @@ class _HomePageState extends State<HomePage> {
             child: Row(
               children: [
                 Expanded(
-                  child: ReusableCard(color: cardColor)
+                  child: ReusableCard(
+                    color: cardColor,
+                    cardChild: ReusableCardChild(
+                      iconData: FontAwesomeIcons.mars,
+                      iconSize: 80.0,
+                      textMessage: 'MALE',
+                      textSize: 18.0,
+                      textColor: textColor
+                    )
+                  ),
                 ),
                 Expanded(
-                  child: ReusableCard(color: cardColor)
+                  child: ReusableCard(
+                    color: cardColor,
+                    cardChild: ReusableCardChild(
+                      iconData: FontAwesomeIcons.venus,
+                      iconSize: 80.0,
+                      textMessage: 'FEMALE',
+                      textSize: 18.0,
+                      textColor: textColor
+                    )
+                  )
                 ),
               ],
             ),
@@ -64,10 +84,12 @@ class _HomePageState extends State<HomePage> {
 class ReusableCard extends StatelessWidget {
   const ReusableCard({
     super.key, 
-    required this.color
+    required this.color,
+    this.cardChild
   });
 
   final Color color;
+  final Widget? cardChild;
 
   @override
   Widget build(BuildContext context) {
@@ -76,6 +98,42 @@ class ReusableCard extends StatelessWidget {
       decoration: BoxDecoration(
           color: color,
           borderRadius: BorderRadius.circular(10)),
+      child: cardChild
+    );
+  }
+}
+
+class ReusableCardChild extends StatelessWidget {
+  const ReusableCardChild({
+    super.key,
+    required this.iconData,
+    required this.iconSize,
+    required this.textMessage,
+    required this.textSize,
+    required this.textColor
+  });
+
+  final IconData iconData;
+  final double iconSize;
+  final String textMessage;
+  final double textSize;
+  final Color textColor;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Icon(iconData, size: iconSize),
+        const SizedBox(height: 15.0),
+        Text(
+          textMessage,
+          style: TextStyle(
+            fontSize: textSize,
+            color: textColor
+          )
+        )
+      ]
     );
   }
 }
