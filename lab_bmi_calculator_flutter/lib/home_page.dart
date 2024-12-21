@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:lab_bmi_calculator_flutter/icon_content.dart';
-import 'package:lab_bmi_calculator_flutter/reusable_card.dart';
+import 'icon_content.dart';
+import 'reusable_card.dart';
 
 const bottomContainerHeight = 80.0;
 const cardColor = Color(0xFF1D1E33);
@@ -36,8 +36,10 @@ class _HomePageState extends State<HomePage> {
                       iconData: FontAwesomeIcons.mars,
                       iconSize: 80.0,
                       textMessage: 'MALE',
-                      textSize: 18.0,
-                      textColor: textColor
+                      textStyle: TextStyle(
+                        fontSize: 18.0,
+                        color: textColor
+                      )
                     )
                   ),
                 ),
@@ -48,8 +50,10 @@ class _HomePageState extends State<HomePage> {
                       iconData: FontAwesomeIcons.venus,
                       iconSize: 80.0,
                       textMessage: 'FEMALE',
-                      textSize: 18.0,
-                      textColor: textColor
+                      textStyle: TextStyle(
+                        fontSize: 18.0,
+                        color: textColor
+                      )
                     )
                   )
                 ),

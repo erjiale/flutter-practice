@@ -6,15 +6,13 @@ class IconContent extends StatelessWidget {
     required this.iconData,
     required this.iconSize,
     required this.textMessage,
-    required this.textSize,
-    required this.textColor
+    required this.textStyle
   });
 
   final IconData iconData;
   final double iconSize;
   final String textMessage;
-  final double textSize;
-  final Color textColor;
+  final TextStyle textStyle;
 
   @override
   Widget build(BuildContext context) {
@@ -25,10 +23,7 @@ class IconContent extends StatelessWidget {
         const SizedBox(height: 15.0),
         Text(
           textMessage,
-          style: TextStyle(
-            fontSize: textSize,
-            color: textColor
-          )
+          style: textStyle
         )
       ]
     );
