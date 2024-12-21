@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:lab_bmi_calculator_flutter/icon_content.dart';
+import 'package:lab_bmi_calculator_flutter/reusable_card.dart';
 
 const bottomContainerHeight = 80.0;
 const cardColor = Color(0xFF1D1E33);
@@ -30,7 +32,7 @@ class _HomePageState extends State<HomePage> {
                 Expanded(
                   child: ReusableCard(
                     color: cardColor,
-                    cardChild: ReusableCardChild(
+                    cardChild: IconContent(
                       iconData: FontAwesomeIcons.mars,
                       iconSize: 80.0,
                       textMessage: 'MALE',
@@ -42,7 +44,7 @@ class _HomePageState extends State<HomePage> {
                 Expanded(
                   child: ReusableCard(
                     color: cardColor,
-                    cardChild: ReusableCardChild(
+                    cardChild: IconContent(
                       iconData: FontAwesomeIcons.venus,
                       iconSize: 80.0,
                       textMessage: 'FEMALE',
@@ -81,59 +83,5 @@ class _HomePageState extends State<HomePage> {
   }
 }
 
-class ReusableCard extends StatelessWidget {
-  const ReusableCard({
-    super.key, 
-    required this.color,
-    this.cardChild
-  });
 
-  final Color color;
-  final Widget? cardChild;
 
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.all(15),
-      decoration: BoxDecoration(
-          color: color,
-          borderRadius: BorderRadius.circular(10)),
-      child: cardChild
-    );
-  }
-}
-
-class ReusableCardChild extends StatelessWidget {
-  const ReusableCardChild({
-    super.key,
-    required this.iconData,
-    required this.iconSize,
-    required this.textMessage,
-    required this.textSize,
-    required this.textColor
-  });
-
-  final IconData iconData;
-  final double iconSize;
-  final String textMessage;
-  final double textSize;
-  final Color textColor;
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Icon(iconData, size: iconSize),
-        const SizedBox(height: 15.0),
-        Text(
-          textMessage,
-          style: TextStyle(
-            fontSize: textSize,
-            color: textColor
-          )
-        )
-      ]
-    );
-  }
-}
