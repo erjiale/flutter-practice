@@ -22,31 +22,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
 
-  Color maleCardColor = inactiveCardColor;
-  Color femaleCardColor = inactiveCardColor;
-
-  void updateColor(Gender selectedGender) {
-    switch (selectedGender) {
-      case Gender.male:
-        maleCardColor = maleCardColor == inactiveCardColor
-          ? activeCardColor
-          : inactiveCardColor;
-        femaleCardColor = maleCardColor == activeCardColor
-          ? inactiveCardColor
-          : femaleCardColor;
-        break;
-      case Gender.female:
-        femaleCardColor = femaleCardColor == inactiveCardColor
-          ? activeCardColor
-          : inactiveCardColor;
-        maleCardColor = femaleCardColor == activeCardColor
-          ? inactiveCardColor
-          : maleCardColor;
-        break;
-      default:
-        break;
-    }
-  }
+  Gender? selectedGender;
 
   @override
   Widget build(BuildContext context) {
@@ -63,11 +39,11 @@ class _HomePageState extends State<HomePage> {
                   child: GestureDetector(
                     onTap: () => {
                       setState(() => 
-                        updateColor(Gender.male)
+                        selectedGender = Gender.male
                       ),
                     },
                     child: ReusableCard(
-                      color: maleCardColor,
+                      color: selectedGender == Gender.male ? activeCardColor : inactiveCardColor,
                       cardChild: const IconContent(
                         iconData: FontAwesomeIcons.mars,
                         iconSize: 80.0,
@@ -84,11 +60,11 @@ class _HomePageState extends State<HomePage> {
                   child: GestureDetector(
                     onTap: () => {
                       setState(() => 
-                        updateColor(Gender.female)
+                        selectedGender = Gender.female
                       ),
                     },
                     child: ReusableCard(
-                      color: femaleCardColor,
+                      color: selectedGender == Gender.female ? activeCardColor : inactiveCardColor,
                       cardChild: const IconContent(
                         iconData: FontAwesomeIcons.venus,
                         iconSize: 80.0,
