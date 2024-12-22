@@ -19,7 +19,8 @@ class _HomePageState extends State<HomePage> {
 
   Gender? selectedGender;
   int selectedHeight = 178;
-  
+  int selectedWeight = 70;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -99,11 +100,50 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
           ),
-          const Expanded(
+          Expanded(
             child: Row(
               children: [
                 Expanded(
-                  child: ReusableCard(color: kInactiveCardColor)
+                  child: ReusableCard(
+                    color: kInactiveCardColor,
+                    cardChild: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Text("WEIGHT", style: kTextMessageStyle),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.baseline,
+                          textBaseline: TextBaseline.alphabetic,
+                          children: [
+                            Text("$selectedWeight", style: kNumberStyle),
+                            const Text("kg")
+                          ],
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            RoundIconButton(
+                              onPressed: () => {
+                                setState(() =>
+                                  selectedWeight -= 1
+                                )
+                              },
+                              icon: Icons.remove,
+                            ),
+                            const SizedBox(width: 10),
+                            RoundIconButton(
+                              onPressed: () => {
+                                setState(() =>
+                                  selectedWeight += 1
+                                )
+                              },
+                              icon: Icons.add,
+                            )
+                          ],
+                        )
+                      ],
+                    ),
+                  )
                 ),
                 Expanded(
                   child: ReusableCard(color: kInactiveCardColor)
@@ -123,5 +163,34 @@ class _HomePageState extends State<HomePage> {
   }
 }
 
+class RoundIconButton extends StatelessWidget {
+  const RoundIconButton({
+    super.key,
+    required this.onPressed,
+    this.icon,
+    this.fillColor,
+    this.iconColor
+  });
+
+  final Function() onPressed;
+  final IconData? icon;
+  final Color? fillColor;
+  final Color? iconColor;
+
+  @override
+  Widget build(BuildContext context) {
+    return RawMaterialButton(
+      elevation: 6,
+      constraints: const BoxConstraints.tightFor(
+        width: 56.0,
+        height: 56.0,
+      ),
+      shape: const CircleBorder(),
+      onPressed: onPressed,
+      fillColor: fillColor ?? const Color(0xFF4C4F5E),
+      child: Icon(icon, color: iconColor, size: 36),
+    );
+  }
+}
 
 
