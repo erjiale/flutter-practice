@@ -1,13 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'constants.dart';
 import 'icon_content.dart';
 import 'reusable_card.dart';
-
-const bottomContainerHeight = 80.0;
-const activeCardColor = Color(0xFF1D1E33);
-const inactiveCardColor = Color(0xFF111328);
-const bottomContainerColor = Color(0xFF6E0505);
-const textColor = Color(0xFF9E9E98);
 
 enum Gender { male, female }
 
@@ -47,10 +42,7 @@ class _HomePageState extends State<HomePage> {
                       iconData: FontAwesomeIcons.mars,
                       iconSize: 80.0,
                       textMessage: 'MALE',
-                      textStyle: TextStyle(
-                        fontSize: 18.0,
-                        color: textColor
-                      )
+                      textStyle: textMessageStyle
                     ),
                   ),
                 ),
@@ -66,10 +58,7 @@ class _HomePageState extends State<HomePage> {
                       iconData: FontAwesomeIcons.venus,
                       iconSize: 80.0,
                       textMessage: 'FEMALE',
-                      textStyle: TextStyle(
-                        fontSize: 18.0,
-                        color: textColor
-                      ),
+                      textStyle: textMessageStyle,
                     ),
                   )
                 ),
