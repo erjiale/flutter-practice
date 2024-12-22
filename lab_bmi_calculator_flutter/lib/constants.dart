@@ -9,3 +9,8 @@ const kTextMessageStyle = TextStyle(
   fontSize: 18.0,
   color: Color(0xFF9E9E98)
 );
+
+const kNumberStyle = TextStyle(
+  fontSize: 60,
+  fontWeight: FontWeight.w900
+);

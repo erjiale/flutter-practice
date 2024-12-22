@@ -66,7 +66,24 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           const Expanded(
-            child: ReusableCard(color: kInactiveCardColor),
+            child: ReusableCard(
+              color: kInactiveCardColor,
+              cardChild: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text("HEIGHT", style: kTextMessageStyle),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.baseline,
+                    textBaseline: TextBaseline.alphabetic,
+                    children: [
+                      Text("178", style: kNumberStyle),
+                      Text("cm")
+                    ]
+                  )
+                ],
+              ),
+            ),
           ),
           const Expanded(
             child: Row(
