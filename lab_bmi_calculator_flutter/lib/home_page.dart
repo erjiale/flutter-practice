@@ -36,44 +36,40 @@ class _HomePageState extends State<HomePage> {
             child: Row(
               children: [
                 Expanded(
-                  child: GestureDetector(
-                    onTap: () => {
-                      setState(() => 
-                        selectedGender = Gender.male
-                      ),
+                  child: ReusableCard(
+                    onTapAction: () {
+                      setState(() {
+                        selectedGender = Gender.male;
+                      });
                     },
-                    child: ReusableCard(
-                      color: selectedGender == Gender.male ? activeCardColor : inactiveCardColor,
-                      cardChild: const IconContent(
-                        iconData: FontAwesomeIcons.mars,
-                        iconSize: 80.0,
-                        textMessage: 'MALE',
-                        textStyle: TextStyle(
-                          fontSize: 18.0,
-                          color: textColor
-                        )
+                    color: selectedGender == Gender.male ? activeCardColor : inactiveCardColor,
+                    cardChild: const IconContent(
+                      iconData: FontAwesomeIcons.mars,
+                      iconSize: 80.0,
+                      textMessage: 'MALE',
+                      textStyle: TextStyle(
+                        fontSize: 18.0,
+                        color: textColor
                       )
                     ),
                   ),
                 ),
                 Expanded(
-                  child: GestureDetector(
-                    onTap: () => {
-                      setState(() => 
-                        selectedGender = Gender.female
-                      ),
+                  child: ReusableCard(
+                    onTapAction: () => {
+                      setState(() {
+                        selectedGender = Gender.female;
+                      })
                     },
-                    child: ReusableCard(
-                      color: selectedGender == Gender.female ? activeCardColor : inactiveCardColor,
-                      cardChild: const IconContent(
-                        iconData: FontAwesomeIcons.venus,
-                        iconSize: 80.0,
-                        textMessage: 'FEMALE',
-                        textStyle: TextStyle(
-                          fontSize: 18.0,
-                          color: textColor
-                        )
-                      )
+                    color: selectedGender == Gender.female ? activeCardColor : inactiveCardColor,
+                    cardChild: const IconContent(
+                      iconData: FontAwesomeIcons.venus,
+                      iconSize: 80.0,
+                      textMessage: 'FEMALE',
+                      textStyle: TextStyle(
+                        fontSize: 18.0,
+                        color: textColor
+                      ),
                     ),
                   )
                 ),
