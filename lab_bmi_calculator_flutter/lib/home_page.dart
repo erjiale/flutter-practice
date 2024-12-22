@@ -125,7 +125,7 @@ class _HomePageState extends State<HomePage> {
                             RoundIconButton(
                               onPressed: () => {
                                 setState(() =>
-                                  selectedWeight -= 1
+                                  selectedWeight--
                                 )
                               },
                               icon: Icons.remove,
@@ -134,7 +134,7 @@ class _HomePageState extends State<HomePage> {
                             RoundIconButton(
                               onPressed: () => {
                                 setState(() =>
-                                  selectedWeight += 1
+                                  selectedWeight++
                                 )
                               },
                               icon: Icons.add,
