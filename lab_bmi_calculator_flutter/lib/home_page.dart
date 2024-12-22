@@ -82,17 +82,18 @@ class _HomePageState extends State<HomePage> {
                       const Text("cm")
                     ]
                   ),
-                  Slider(
-                    value: selectedHeight.toDouble(),
-                    min: 120,
-                    max: 220,
-                    activeColor: kPrimaryColor,
-                    inactiveColor: kInactiveSliderColor,
-                    onChanged: (double newValue) => {
-                      setState(() => 
-                        selectedHeight = newValue.toInt()
-                      )
-                    },
+                  SliderTheme(
+                    data: kSliderThemeData,
+                    child: Slider(
+                      value: selectedHeight.toDouble(),
+                      min: 120,
+                      max: 220,
+                      onChanged: (double newValue) => {
+                        setState(() => 
+                          selectedHeight = newValue.toInt()
+                        )
+                      },
+                    ),
                   ),
                 ],
               ),

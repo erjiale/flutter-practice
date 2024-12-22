@@ -16,3 +16,11 @@ const kNumberStyle = TextStyle(
   fontSize: 60,
   fontWeight: FontWeight.w900
 );
+
+const kSliderThemeData = SliderThemeData(
+  activeTrackColor: Colors.white,
+  inactiveTrackColor: kInactiveSliderColor,
+  thumbColor: kPrimaryColor,
+  thumbShape: RoundSliderThumbShape(enabledThumbRadius: 15),
+  overlayShape: RoundSliderOverlayShape(overlayRadius: 30)
+);
