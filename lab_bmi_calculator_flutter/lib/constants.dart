@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 
-const kBottomContainerHeight = 80.0;
+const kPrimaryColor = Color.fromARGB(248, 53, 221, 221);
 const kActiveCardColor = Color(0xFF1D1E33);
 const kInactiveCardColor = Color(0xFF111328);
-const kBottomContainerColor = Color(0xFF6E0505);
+const kInactiveSliderColor = Color.fromARGB(255, 80, 80, 80);
+
+const kBottomContainerHeight = 80.0;
 
 const kTextMessageStyle = TextStyle(
   fontSize: 18.0,

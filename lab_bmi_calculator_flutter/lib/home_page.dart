@@ -18,7 +18,8 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
 
   Gender? selectedGender;
-
+  int selectedHeight = 178;
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -65,22 +66,34 @@ class _HomePageState extends State<HomePage> {
               ],
             ),
           ),
-          const Expanded(
+          Expanded(
             child: ReusableCard(
               color: kInactiveCardColor,
               cardChild: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text("HEIGHT", style: kTextMessageStyle),
+                  const Text("HEIGHT", style: kTextMessageStyle),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.baseline,
                     textBaseline: TextBaseline.alphabetic,
                     children: [
-                      Text("178", style: kNumberStyle),
-                      Text("cm")
+                      Text('$selectedHeight', style: kNumberStyle),
+                      const Text("cm")
                     ]
-                  )
+                  ),
+                  Slider(
+                    value: selectedHeight.toDouble(),
+                    min: 120,
+                    max: 220,
+                    activeColor: kPrimaryColor,
+                    inactiveColor: kInactiveSliderColor,
+                    onChanged: (double newValue) => {
+                      setState(() => 
+                        selectedHeight = newValue.toInt()
+                      )
+                    },
+                  ),
                 ],
               ),
             ),
@@ -98,7 +111,7 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           Container(
-            color: kBottomContainerColor,
+            color: kPrimaryColor,
             margin: const EdgeInsets.only(top: 10.0),
             width: double.infinity,
             height: kBottomContainerHeight
