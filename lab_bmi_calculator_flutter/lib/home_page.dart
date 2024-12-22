@@ -20,6 +20,7 @@ class _HomePageState extends State<HomePage> {
   Gender? selectedGender;
   int selectedHeight = 178;
   int selectedWeight = 70;
+  int selectedAge = 26;
 
   @override
   Widget build(BuildContext context) {
@@ -146,7 +147,38 @@ class _HomePageState extends State<HomePage> {
                   )
                 ),
                 Expanded(
-                  child: ReusableCard(color: kInactiveCardColor)
+                  child: ReusableCard(
+                    color: kInactiveCardColor,
+                    cardChild: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Text("AGE", style: kTextMessageStyle),
+                        Text("$selectedAge", style: kNumberStyle),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            RoundIconButton(
+                              onPressed: () => {
+                                setState(() =>
+                                  selectedAge--
+                                )
+                              },
+                              icon: Icons.remove,
+                            ),
+                            const SizedBox(width: 10),
+                            RoundIconButton(
+                              onPressed: () => {
+                                setState(() =>
+                                  selectedAge++
+                                )
+                              },
+                              icon: Icons.add,
+                            )
+                          ],
+                        )
+                      ],
+                    ),
+                  )
                 ),
               ],
             ),
