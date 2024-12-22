@@ -37,12 +37,12 @@ class _HomePageState extends State<HomePage> {
                         selectedGender = Gender.male;
                       });
                     },
-                    color: selectedGender == Gender.male ? activeCardColor : inactiveCardColor,
+                    color: selectedGender == Gender.male ? kActiveCardColor : kInactiveCardColor,
                     cardChild: const IconContent(
                       iconData: FontAwesomeIcons.mars,
                       iconSize: 80.0,
                       textMessage: 'MALE',
-                      textStyle: textMessageStyle
+                      textStyle: kTextMessageStyle
                     ),
                   ),
                 ),
@@ -53,12 +53,12 @@ class _HomePageState extends State<HomePage> {
                         selectedGender = Gender.female;
                       })
                     },
-                    color: selectedGender == Gender.female ? activeCardColor : inactiveCardColor,
+                    color: selectedGender == Gender.female ? kActiveCardColor : kInactiveCardColor,
                     cardChild: const IconContent(
                       iconData: FontAwesomeIcons.venus,
                       iconSize: 80.0,
                       textMessage: 'FEMALE',
-                      textStyle: textMessageStyle,
+                      textStyle: kTextMessageStyle,
                     ),
                   )
                 ),
@@ -66,25 +66,25 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           const Expanded(
-            child: ReusableCard(color: inactiveCardColor),
+            child: ReusableCard(color: kInactiveCardColor),
           ),
           const Expanded(
             child: Row(
               children: [
                 Expanded(
-                  child: ReusableCard(color: inactiveCardColor)
+                  child: ReusableCard(color: kInactiveCardColor)
                 ),
                 Expanded(
-                  child: ReusableCard(color: inactiveCardColor)
+                  child: ReusableCard(color: kInactiveCardColor)
                 ),
               ],
             ),
           ),
           Container(
-            color: bottomContainerColor,
+            color: kBottomContainerColor,
             margin: const EdgeInsets.only(top: 10.0),
             width: double.infinity,
-            height: bottomContainerHeight
+            height: kBottomContainerHeight
           ),
         ],
       ),
