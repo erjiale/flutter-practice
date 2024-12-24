@@ -17,6 +17,11 @@ const kNumberStyle = TextStyle(
   fontWeight: FontWeight.w900
 );
 
+const kBottomContainerTextStyle = TextStyle(
+  fontSize: 25,
+  fontWeight: FontWeight.w600
+);
+
 const kSliderThemeData = SliderThemeData(
   activeTrackColor: Colors.white,
   inactiveTrackColor: kInactiveSliderColor,
@@ -24,3 +29,21 @@ const kSliderThemeData = SliderThemeData(
   thumbShape: RoundSliderThumbShape(enabledThumbRadius: 15),
   overlayShape: RoundSliderOverlayShape(overlayRadius: 30)
 );
+
+
+const kResultsPageTitleTextStyle = TextStyle(
+  fontSize: 40,
+  fontWeight: FontWeight.bold
+);
+
+const kResultTextStyle = TextStyle(
+  fontSize: 22,
+  color: Color(0xFF24D876),
+  fontWeight: FontWeight.bold
+);
+
+const kBmiTextStyle = TextStyle(
+  fontSize: 100,
+  fontWeight: FontWeight.bold
+);
+
