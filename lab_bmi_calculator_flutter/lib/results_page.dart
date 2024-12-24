@@ -4,7 +4,15 @@ import 'constants.dart';
 import 'reusable_card.dart';
 
 class ResultsPage extends StatelessWidget {
-  const ResultsPage({super.key});
+  const ResultsPage(
+      {super.key,
+      required this.bmiResult,
+      required this.textResult,
+      required this.interpretation});
+
+  final String bmiResult;
+  final String textResult;
+  final String interpretation;
 
   @override
   Widget build(BuildContext context) {
@@ -24,19 +32,16 @@ class ResultsPage extends StatelessWidget {
                     textAlign: TextAlign.left,
                   )),
             ),
-            const Expanded(
+            Expanded(
               flex: 5,
               child: ReusableCard(
                 color: kActiveCardColor,
                 cardChild: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      Text('OVERWEIGHT', style: kResultTextStyle),
-                      Text('20.0', style: kBmiTextStyle),
-                      Text(
-                        'BMI Score Description BMI Score Description BMI Score Description BMI Score Description',
-                        textAlign: TextAlign.center,
-                      )
+                      Text(textResult, style: kResultTextStyle),
+                      Text(bmiResult.toUpperCase(), style: kBmiTextStyle),
+                      Text(interpretation, textAlign: TextAlign.center),
                     ]),
               ),
             ),
