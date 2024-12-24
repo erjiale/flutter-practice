@@ -18,7 +18,6 @@ class ResultsPage extends StatelessWidget {
             Expanded(
               child: Container(
                   padding: const EdgeInsets.only(top: 25.0),
-                  // alignment: Alignment.bottomLeft,
                   child: const Text(
                     'Your Result',
                     style: kResultsPageTitleTextStyle,
@@ -43,9 +42,7 @@ class ResultsPage extends StatelessWidget {
             ),
             BottomButton(
               buttonTitle: "RE-CALCULATE",
-              onTap: () => {
-                Navigator.pop(context)
-              },
+              onTap: () => {Navigator.pop(context)},
             ),
           ],
         ));
